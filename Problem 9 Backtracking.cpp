@@ -4,13 +4,12 @@
 
 using namespace std;
 
-//PROBLEM 9: BACKTRACKING
-
+// PROBLEM 9: BACKTRACKING
 class Solution {
 public:
     bool dfs(int row, int col, int ind, vector<vector<char>>& board, string& word,
         vector<vector<int>>& vis) {
-        if (ind == word.size()) {
+        if (static_cast<int>(word.size()) == ind) { // Cast to int for comparison
             return true;
         }
         int n = board.size(), m = board[0].size();
@@ -38,7 +37,7 @@ public:
         vector<string> ans;
         int n = board.size(), m = board[0].size();
 
-        for (int d = 0; d < dict.size(); d++) {
+        for (size_t d = 0; d < dict.size(); d++) { // Changed loop variable to size_t
             bool flag = true;
             vector<vector<int>> vis(n, vector<int>(m, 0));
             for (int i = 0; i < n; i++) {
