@@ -5,6 +5,7 @@
 using namespace std;
 
 // PROBLEM 9: BACKTRACKING
+
 class Solution {
 public:
     bool dfs(int row, int col, int ind, vector<vector<char>>& board, string& word,
@@ -37,7 +38,7 @@ public:
         vector<string> ans;
         int n = board.size(), m = board[0].size();
 
-        for (size_t d = 0; d < dict.size(); d++) { // Changed loop variable to size_t
+        for (size_t d = 0; d < dict.size(); d++) { 
             bool flag = true;
             vector<vector<int>> vis(n, vector<int>(m, 0));
             for (int i = 0; i < n; i++) {
@@ -65,10 +66,7 @@ int main() {
         {'T', 'I', 'E'}
     };
     vector<string> dictionary = { "CAT" };
-
     vector<string> result = sol.wordBoggle(board, dictionary);
-
-    cout << "Output:" << endl;
     for (const string& word : result) {
         cout << word << endl;
     }
