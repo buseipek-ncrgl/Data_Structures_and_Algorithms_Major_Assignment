@@ -14,13 +14,13 @@ bool isValidSegment(const string& segment) {
 
 void generateIPAddresses(vector<string>& result, const string& givenString, int index, int count, string ipAddress) {
 
-    if (index == givenString.size() && count == 4) {
+    if (index == static_cast<int>(givenString.size()) && count == 4) {
         ipAddress.pop_back(); // Remove the last dot
         result.push_back(ipAddress); 
         return;
     }
 
-    if (index == givenString.size() || count == 4)
+    if (index == static_cast<int>(givenString.size()) || count == 4)
         return;
 
     string segment1 = givenString.substr(index, 1);
@@ -28,14 +28,14 @@ void generateIPAddresses(vector<string>& result, const string& givenString, int 
         generateIPAddresses(result, givenString, index + 1, count + 1, ipAddress + segment1 + '.');
     }
 
-    if (index + 1 < givenString.size()) {
+    if (index + 1 < static_cast<int>(givenString.size())) {
         string segment2 = givenString.substr(index, 2);
         if (isValidSegment(segment2)) {
             generateIPAddresses(result, givenString, index + 2, count + 1, ipAddress + segment2 + '.');
         }
     }
 
-    if (index + 2 < givenString.size()) {
+    if (index + 2 < static_cast<int>(givenString.size())) {
         string segment3 = givenString.substr(index, 3);
         if (isValidSegment(segment3)) {
             generateIPAddresses(result, givenString, index + 3, count + 1, ipAddress + segment3 + '.');
