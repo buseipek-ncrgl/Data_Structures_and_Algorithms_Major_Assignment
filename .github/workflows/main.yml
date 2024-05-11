@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  build_problem1:
     runs-on: ubuntu-latest
     
     steps:
@@ -16,7 +16,22 @@ jobs:
     - name: Install g++
       run: sudo apt-get install g++
 
-    - name: Compile and Run C++ Code
+    - name: Compile and Run Problem 1 C++ Code
       run: |
-        g++ -o main.out -std=c++11 -Wall -Wextra -Werror "Problem 1 Greedy Algorithm.cpp"
-        ./main.out
+        g++ -o main1.out -std=c++11 -Wall -Wextra -Werror "Problem 1 Greedy Algorithm.cpp"
+        ./main1.out
+
+  build_problem2:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install g++
+      run: sudo apt-get install g++
+
+    - name: Compile and Run Problem 2 C++ Code
+      run: |
+        g++ -o main2.out -std=c++11 -Wall -Wextra -Werror "Problem 2 Greedy Algorithm.cpp"
+        ./main2.out
