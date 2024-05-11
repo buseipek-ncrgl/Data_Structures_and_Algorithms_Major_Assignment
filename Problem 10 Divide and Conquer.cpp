@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// PRROBLEM 10: DIVIDE AND CONQUER
+// PROBLEM 10: DIVIDE AND CONQUER
 
 int find(int arr1[], int arr2[], int m, int n, int k) {
     int d = 0, i = 0, j = 0;
@@ -20,19 +20,22 @@ int find(int arr1[], int arr2[], int m, int n, int k) {
         }
     }
 
-    while (i < m) {
-        k++;
+    while (i < m && d < k) {
+        d++;
         if (d == k)
             return arr1[i];
         i++;
     }
 
-    while (j < n){
+    while (j < n && d < k){
         d++;
         if (d == k)
             return arr2[j];
         j++;
     }
+
+    // If k is out of bounds
+    return -1; // Indicate that k is out of bounds
 }
 
 int main()
